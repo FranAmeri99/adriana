@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QFile>
+#include <QFileDevice>
+#include <QFileDialog>
+#include <QTextStream>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -15,7 +18,15 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::on_actionGuardar_Como_triggered(){
-
+    QFile archivo;
+    QTextStream io;
+    QString nombre;
+    nombre = QFileDialog::getSaveFileName(this, "Guardar");
+    archivo.setFileName(nombre);
+    archivo.open(QIODevice::WriteOnly | QIODevice::Text);
+    io.setDevice(&archivo);
+    io << "el pepe";
+    archivo.close();
 }
 
 void MainWindow::on_actionNuevo_triggered(){
