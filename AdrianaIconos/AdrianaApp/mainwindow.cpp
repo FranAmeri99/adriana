@@ -20,7 +20,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionGuardar_Como_triggered(){
     QFile archivo;
     QTextStream io;
-    QString nombre;
+    QString nombre = "juan";
     nombre = QFileDialog::getSaveFileName(this, "Guardar");
     archivo.setFileName(nombre);
     archivo.open(QIODevice::WriteOnly | QIODevice::Text);
