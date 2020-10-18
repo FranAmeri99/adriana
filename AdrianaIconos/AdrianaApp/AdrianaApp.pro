@@ -16,19 +16,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Requierente.cpp \
+    asd.cpp \
+    general.cpp \
     main.cpp \
     mainwindow.cpp \
+    observaciones.cpp \
     requerido.cpp
 
 HEADERS += \
-    Requirente.h \
+    general.h \
     mainwindow.h \
+    observaciones.h \
     requerido.h
 
 FORMS += \
-    Requierente.ui \
+    general.ui \
     mainwindow.ui \
+    observaciones.ui \
     requerido.ui
 
 # Default rules for deployment.

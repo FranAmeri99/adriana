@@ -14,12 +14,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QSpinBox>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -40,9 +40,13 @@ public:
     QAction *actionGuardar;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QSpinBox *spinBox;
-    QLabel *label_2;
-    QLabel *label;
+    QTextBrowser *texto;
+    QPushButton *pbGuardar;
+    QGridLayout *gridLayout_2;
+    QPushButton *pbObservacion;
+    QPushButton *pbRequerido;
+    QPushButton *pbRequirente;
+    QPushButton *pbGeneral;
     QMenuBar *menubar;
     QMenu *menuArchivo;
     QMenu *menuEditar;
@@ -54,7 +58,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(473, 239);
+        MainWindow->resize(473, 417);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/huevo.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -83,20 +87,40 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        spinBox = new QSpinBox(centralwidget);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
+        texto = new QTextBrowser(centralwidget);
+        texto->setObjectName(QString::fromUtf8("texto"));
 
-        gridLayout->addWidget(spinBox, 0, 1, 1, 1);
+        gridLayout->addWidget(texto, 0, 2, 1, 1);
 
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        pbGuardar = new QPushButton(centralwidget);
+        pbGuardar->setObjectName(QString::fromUtf8("pbGuardar"));
 
-        gridLayout->addWidget(label_2, 3, 0, 1, 1);
+        gridLayout->addWidget(pbGuardar, 2, 0, 1, 3);
 
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        pbObservacion = new QPushButton(centralwidget);
+        pbObservacion->setObjectName(QString::fromUtf8("pbObservacion"));
 
-        gridLayout->addWidget(label, 0, 0, 1, 1);
+        gridLayout_2->addWidget(pbObservacion, 3, 0, 1, 2);
+
+        pbRequerido = new QPushButton(centralwidget);
+        pbRequerido->setObjectName(QString::fromUtf8("pbRequerido"));
+
+        gridLayout_2->addWidget(pbRequerido, 2, 0, 1, 2);
+
+        pbRequirente = new QPushButton(centralwidget);
+        pbRequirente->setObjectName(QString::fromUtf8("pbRequirente"));
+
+        gridLayout_2->addWidget(pbRequirente, 1, 0, 1, 2);
+
+        pbGeneral = new QPushButton(centralwidget);
+        pbGeneral->setObjectName(QString::fromUtf8("pbGeneral"));
+
+        gridLayout_2->addWidget(pbGeneral, 0, 0, 1, 2);
+
+
+        gridLayout->addLayout(gridLayout_2, 0, 1, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -115,6 +139,11 @@ public:
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
+        QWidget::setTabOrder(pbGeneral, pbRequirente);
+        QWidget::setTabOrder(pbRequirente, pbRequerido);
+        QWidget::setTabOrder(pbRequerido, pbObservacion);
+        QWidget::setTabOrder(pbObservacion, pbGuardar);
+        QWidget::setTabOrder(pbGuardar, texto);
 
         menubar->addAction(menuArchivo->menuAction());
         menubar->addAction(menuEditar->menuAction());
@@ -174,8 +203,11 @@ public:
 #if QT_CONFIG(shortcut)
         actionGuardar->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+S", nullptr));
 #endif // QT_CONFIG(shortcut)
-        label_2->setText(QString());
-        label->setText(QCoreApplication::translate("MainWindow", " Cantida personas", nullptr));
+        pbGuardar->setText(QCoreApplication::translate("MainWindow", "Guardar", nullptr));
+        pbObservacion->setText(QCoreApplication::translate("MainWindow", "Agregar Observacion", nullptr));
+        pbRequerido->setText(QCoreApplication::translate("MainWindow", "Agregar Requerido", nullptr));
+        pbRequirente->setText(QCoreApplication::translate("MainWindow", "Agregar Requirente", nullptr));
+        pbGeneral->setText(QCoreApplication::translate("MainWindow", "Datos De Reunion", nullptr));
         menuArchivo->setTitle(QCoreApplication::translate("MainWindow", "Archivo", nullptr));
         menuEditar->setTitle(QCoreApplication::translate("MainWindow", "Editar", nullptr));
         menuAyuda->setTitle(QCoreApplication::translate("MainWindow", "Ayuda", nullptr));

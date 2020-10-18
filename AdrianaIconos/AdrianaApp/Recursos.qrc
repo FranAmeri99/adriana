@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>huevo.png</file>
+        <file>Insertar.txt</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
 </RCC>

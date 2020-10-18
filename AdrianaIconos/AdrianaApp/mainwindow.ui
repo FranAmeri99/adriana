@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>473</width>
-    <height>303</height>
+    <height>417</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,40 +19,47 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+    <item row="0" column="2">
+     <widget class="QTextBrowser" name="texto"/>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <widget class="QPushButton" name="pbGuardar">
+      <property name="text">
+       <string>Guardar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="text">
-         <string>Agregar Requerido</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>Agregar Requirente</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="pushButton_4">
+      <item row="3" column="0" colspan="2">
+       <widget class="QPushButton" name="pbObservacion">
         <property name="text">
          <string>Agregar Observacion</string>
         </property>
        </widget>
       </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="QPushButton" name="pbRequerido">
+        <property name="text">
+         <string>Agregar Requerido</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QPushButton" name="pbRequirente">
+        <property name="text">
+         <string>Agregar Requirente</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QPushButton" name="pbGeneral">
+        <property name="text">
+         <string>Datos De Reunion</string>
+        </property>
+       </widget>
+      </item>
      </layout>
-    </item>
-    <item row="0" column="1">
-     <widget class="QTextBrowser" name="textBrowser"/>
-    </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="text">
-       <string>Guardar</string>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>
@@ -187,6 +194,14 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>pbGeneral</tabstop>
+  <tabstop>pbRequirente</tabstop>
+  <tabstop>pbRequerido</tabstop>
+  <tabstop>pbObservacion</tabstop>
+  <tabstop>pbGuardar</tabstop>
+  <tabstop>texto</tabstop>
+ </tabstops>
  <resources>
   <include location="Recursos.qrc"/>
  </resources>
